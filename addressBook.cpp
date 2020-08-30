@@ -25,6 +25,7 @@ class AddressBook{
         void addPersonDetails();
         void showPersonDetails();
         void editPersonDetails();
+        void deletePersonDetails();
 };
 vector <PersonDetails> personDetailsList;
 
@@ -62,8 +63,8 @@ void AddressBook :: showPersonDetails(){
 
 void AddressBook :: editPersonDetails(){
     int flag = 0;
-
     string firstName, lastName;
+
     cout << "\nEnter first name : ";
     cin >> firstName;
     cout << "Enter last name : ";
@@ -91,12 +92,34 @@ void AddressBook :: editPersonDetails(){
     cout << endl;
 }
 
+void AddressBook :: deletePersonDetails(){
+    int flag = 0;
+    string firstName, lastName;
+    vector<PersonDetails> :: iterator personObj;
+
+    cout << "\nEnter first name : ";
+    cin >> firstName;
+    cout << "Enter last name : ";
+    cin >> lastName;
+    for (personObj = personDetailsList.begin();  personObj != personDetailsList.end(); personObj++){
+        if  (personObj->firstName == firstName && personObj->lastName == lastName){
+            flag = 1;
+            cout << "Record Found, Deleting persons information from address book." << endl;
+            personDetailsList.erase(personObj);
+        }
+    }
+
+    if (flag != 1)
+        cout << "No Such Record Found.";
+    cout << endl;
+}
+
 void displayOptions(){
     bool status = true;
     int choice;
     AddressBook addressBookObj;
     while (status){
-        cout <<"  Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Exit" << endl;
+        cout <<" Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Delete Person's Contact\n5.Exit" << endl;
         cin >> choice;
         switch (choice){
         case 1:
@@ -109,8 +132,12 @@ void displayOptions(){
             break;
         case 3:
             addressBookObj.editPersonDetails();
-            break;    
+            break;
         case 4:
+            addressBookObj.deletePersonDetails();
+            cout << endl;
+            break;        
+        case 5:
             status = false;
             break;
         default:
