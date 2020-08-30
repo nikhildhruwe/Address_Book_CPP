@@ -1,13 +1,13 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class PersonDetails{
-    private :
-    string firstName, lastName, address, city, state, phone;
-    int zip;
+    public :
+        string firstName, lastName, address, city, state, phone;
+        int zip;
     public :
         PersonDetails(string, string, string, string, string, int, string);
-        void showDetails();
 };
 
 PersonDetails :: PersonDetails(string firstName, string lastName, string  address, string  city, string  state, int zip, string phone){
@@ -20,15 +20,76 @@ PersonDetails :: PersonDetails(string firstName, string lastName, string  addres
     this->phone = phone;
 }
 
-void PersonDetails :: showDetails(){
-    cout << "Person Details \n---------------" << endl;
-    cout << "NAME: " << firstName << " " << lastName << "\nADDRESS: " << address << "\nCITY: " << city << "\nSTATE: "
-    << state << "\nZIP-CODE: " << zip << "\nPHONE: " << phone << endl;
+class AddressBook{
+    public :
+        void addPersonDetails();
+        void showPersonDetails();
+};
+vector <PersonDetails> personDetailsList;
 
+void AddressBook :: addPersonDetails(){
+    string firstName, lastName, address, city, state, phone;
+    int zip;
+
+    cout << "\nEnter First Name : ";
+    cin >> firstName;
+    cout << "Enter Last Name : ";
+    cin >> lastName;
+    cin.ignore();
+    cout << "Enter Address : ";
+    getline(cin,address);
+    cout << "Enter City : ";
+    getline(cin, city);
+    cout << "Enter State : ";
+    getline(cin, state);
+    cout << "Enter Zip : ";
+    cin >> zip;
+    cout << "Enter Phone Number  :";
+    cin >> phone;
+    PersonDetails personObj(firstName, lastName, address, city, state, zip, phone);
+    personDetailsList.push_back(personObj);
 }
 
-int main(){
+void AddressBook :: showPersonDetails(){
+    cout << "\nPerson Details \n---------------" << endl;
+    for (int i = 0; i < personDetailsList.size(); i++){
+    cout << "\nNAME: " << personDetailsList[i].firstName  << " " << personDetailsList[i].lastName << ", ADDRESS: "
+     << personDetailsList[i].address << ", CITY: " << personDetailsList[i].city << ", STATE: "<< personDetailsList[i].state <<
+    ", ZIP-CODE: " << personDetailsList[i].zip << ", PHONE: " << personDetailsList[i].phone << endl;
+    }
+}
+
+void displayOptions(){
+    bool status = true;
+    int choice;
+    AddressBook addressBookObj;
+    while (status){
+        cout <<"  Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Exit" << endl;
+        cin >> choice;
+        switch (choice){
+        case 1:
+            addressBookObj.addPersonDetails();
+            cout << endl;
+            break;
+        case 2:
+            addressBookObj.showPersonDetails();
+            cout << endl;
+            break;
+        case 3:
+            status = false;
+            break;
+        default:
+            cout << "Invalid Choice." << endl;
+            break;
+        }
+    }
+}
+
+void welcomeMessage(){
     cout << "\n\tWelcome to address book problem\n" << endl;
-    PersonDetails personObj("Nikhil", "Dhruwe", "Lingampally", "Hyderabad", "Telangana", 500011, "8765432101");
-    personObj.showDetails();
+}
+int main(){
+    welcomeMessage();
+    displayOptions();
+    return 0;
 }
