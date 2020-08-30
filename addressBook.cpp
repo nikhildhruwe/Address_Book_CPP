@@ -24,6 +24,7 @@ class AddressBook{
     public :
         void addPersonDetails();
         void showPersonDetails();
+        void editPersonDetails();
 };
 vector <PersonDetails> personDetailsList;
 
@@ -37,14 +38,14 @@ void AddressBook :: addPersonDetails(){
     cin >> lastName;
     cin.ignore();
     cout << "Enter Address : ";
-    getline(cin,address);
+    getline(cin, address);
     cout << "Enter City : ";
     getline(cin, city);
     cout << "Enter State : ";
     getline(cin, state);
     cout << "Enter Zip : ";
     cin >> zip;
-    cout << "Enter Phone Number  :";
+    cout << "Enter Phone Number : ";
     cin >> phone;
     PersonDetails personObj(firstName, lastName, address, city, state, zip, phone);
     personDetailsList.push_back(personObj);
@@ -59,12 +60,43 @@ void AddressBook :: showPersonDetails(){
     }
 }
 
+void AddressBook :: editPersonDetails(){
+    int flag = 0;
+
+    string firstName, lastName;
+    cout << "\nEnter first name : ";
+    cin >> firstName;
+    cout << "Enter last name : ";
+    cin >> lastName;
+    for (int i = 0; i < personDetailsList.size(); i++){
+        if  (personDetailsList[i].firstName == firstName && personDetailsList[i].lastName == lastName){
+            flag = 1;
+            cin.ignore();
+            cout << "Record Found, Edit the details" << endl;
+            cout << "Enter Address : ";
+            getline(cin, personDetailsList[i].address);
+            cout << "Enter City : ";
+            getline(cin, personDetailsList[i].city);
+            cout << "Enter State : ";
+            getline(cin, personDetailsList[i].state);
+            cout << "Enter Zip : ";
+            cin >> personDetailsList[i].zip;
+            cout << "Enter Phone Number : ";
+            cin >> personDetailsList[i].phone;    
+        }
+    }
+
+    if (flag != 1)
+        cout << "No Such Record Found.";
+    cout << endl;
+}
+
 void displayOptions(){
     bool status = true;
     int choice;
     AddressBook addressBookObj;
     while (status){
-        cout <<"  Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Exit" << endl;
+        cout <<"  Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Exit" << endl;
         cin >> choice;
         switch (choice){
         case 1:
@@ -76,6 +108,9 @@ void displayOptions(){
             cout << endl;
             break;
         case 3:
+            addressBookObj.editPersonDetails();
+            break;    
+        case 4:
             status = false;
             break;
         default:
