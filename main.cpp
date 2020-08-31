@@ -2,6 +2,29 @@
 #include "AddressBook.h"
 using namespace std;
 
+void addPersonDetails(AddressBook &addressBookObj){
+string firstName, lastName, address, city, state, phone;
+    int zip;
+
+    cout << "\nEnter First Name : ";
+    cin >> firstName;
+    cout << "Enter Last Name : ";
+    cin >> lastName;
+    cin.ignore();
+    cout << "Enter Address : ";
+    getline(cin, address);
+    cout << "Enter City : ";
+    getline(cin, city);
+    cout << "Enter State : ";
+    getline(cin, state);
+    cout << "Enter Zip : ";
+    cin >> zip;
+    cout << "Enter Phone Number : ";
+    cin >> phone;
+    PersonDetails personObj(firstName, lastName, address, city, state, zip, phone);
+    addressBookObj.addPerson(personObj);
+}
+
 void displayOptions(){
     bool status = true;
     int choice;
@@ -11,7 +34,7 @@ void displayOptions(){
         cin >> choice;
         switch (choice){
         case 1:
-            addressBookObj.addPersonDetails();
+            addPersonDetails(addressBookObj);
             cout << endl;
             break;
         case 2:

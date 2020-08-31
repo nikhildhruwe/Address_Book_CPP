@@ -5,7 +5,7 @@ using namespace std;
 
 class AddressBook{
     public :
-        void addPersonDetails();
+        void addPerson(PersonDetails);
         void showPersonDetails();
         void editPersonDetails();
         void deletePersonDetails();

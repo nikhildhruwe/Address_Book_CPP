@@ -1,35 +1,15 @@
 #include "AddressBook.h"
 vector <PersonDetails> personDetailsList;
 
-void AddressBook :: addPersonDetails(){
-    string firstName, lastName, address, city, state, phone;
-    int zip;
-
-    cout << "\nEnter First Name : ";
-    cin >> firstName;
-    cout << "Enter Last Name : ";
-    cin >> lastName;
-    cin.ignore();
-    cout << "Enter Address : ";
-    getline(cin, address);
-    cout << "Enter City : ";
-    getline(cin, city);
-    cout << "Enter State : ";
-    getline(cin, state);
-    cout << "Enter Zip : ";
-    cin >> zip;
-    cout << "Enter Phone Number : ";
-    cin >> phone;
-    PersonDetails personObj(firstName, lastName, address, city, state, zip, phone);
+void AddressBook :: addPerson(PersonDetails personObj){   
     personDetailsList.push_back(personObj);
 }
 
 void AddressBook :: showPersonDetails(){
     cout << "\nPerson Details \n---------------" << endl;
     for (int i = 0; i < personDetailsList.size(); i++){
-    cout << "\nNAME: " << personDetailsList[i].firstName  << " " << personDetailsList[i].lastName << ", ADDRESS: "
-     << personDetailsList[i].address << ", CITY: " << personDetailsList[i].city << ", STATE: "<< personDetailsList[i].state <<
-    ", ZIP-CODE: " << personDetailsList[i].zip << ", PHONE: " << personDetailsList[i].phone << endl;
+        personDetailsList[i].displayPersonDetails();
+        cout << endl;
     }
 }
 

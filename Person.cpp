@@ -9,3 +9,8 @@ PersonDetails :: PersonDetails(string firstName, string lastName, string  addres
     this->zip = zip;
     this->phone = phone;
 }
+
+void PersonDetails :: displayPersonDetails(){
+    cout << "NAME: " << firstName << " " << lastName << ", ADDRESS: " << address << ", CITY: " << city << ", STATE: "
+    << state << ", ZIP-CODE: " << zip << ", PHONE: " << phone << endl;    
+}

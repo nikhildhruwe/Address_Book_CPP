@@ -8,4 +8,5 @@ class PersonDetails{
         int zip;
         
         PersonDetails(string firstName, string lastName, string  address, string  city, string  state, int zip, string phone);
+        void displayPersonDetails();
 };
