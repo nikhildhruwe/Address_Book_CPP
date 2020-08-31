@@ -5,9 +5,11 @@ using namespace std;
 
 class AddressBook{
     public :
+        vector <PersonDetails> personDetailsList;
         void addPerson(PersonDetails);
-        void showPersonDetails();
+        void showPersonDetails(vector<PersonDetails>);
         void editPersonDetails();
         void deletePersonDetails();
         bool isNamePresentInAddressBook(string, string);
+        void sortByName();
 };

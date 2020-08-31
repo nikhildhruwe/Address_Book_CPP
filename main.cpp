@@ -30,12 +30,17 @@ void addPersonDetails(AddressBook &addressBookObj){
     addressBookObj.addPerson(personObj);
 }
 
+void displayAddressBook(AddressBook addressBookObj){
+    addressBookObj.showPersonDetails(addressBookObj.personDetailsList);  
+}
+
 void displayOptions(){
     bool status = true;
     int choice;
     AddressBook addressBookObj;
     while (status){
-        cout <<" Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Delete Person's Contact\n5.Exit" << endl;
+        cout <<" Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Delete Person's Contact."
+        "\n5.Sort By Name.\n6.Exit" << endl;
         cin >> choice;
         switch (choice){
         case 1:
@@ -43,7 +48,7 @@ void displayOptions(){
             cout << endl;
             break;
         case 2:
-            addressBookObj.showPersonDetails();
+            displayAddressBook(addressBookObj);
             cout << endl;
             break;
         case 3:
@@ -52,8 +57,12 @@ void displayOptions(){
         case 4:
             addressBookObj.deletePersonDetails();
             cout << endl;
-            break;        
+            break;
         case 5:
+            addressBookObj.sortByName();
+            cout << endl;
+            break;            
+        case 6:
             status = false;
             break;
         default:

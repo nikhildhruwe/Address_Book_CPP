@@ -1,14 +1,13 @@
 #include "AddressBook.h"
-vector <PersonDetails> personDetailsList;
 
 void AddressBook :: addPerson(PersonDetails personObj){   
     personDetailsList.push_back(personObj);
 }
 
-void AddressBook :: showPersonDetails(){
+void AddressBook :: showPersonDetails(vector<PersonDetails> personList){
     cout << "\nPerson Details \n---------------" << endl;
-    for (int i = 0; i < personDetailsList.size(); i++){
-        personDetailsList[i].displayPersonDetails();
+    for (int i = 0; i < personList.size(); i++){
+        personList[i].displayPersonDetails();
         cout << endl;
     }
 }
@@ -76,4 +75,24 @@ bool AddressBook :: isNamePresentInAddressBook(string firstName, string lastName
    }
 
     return false;
+}
+
+void AddressBook :: sortByName(){
+    vector<PersonDetails> sortedList = personDetailsList;
+    for (int i = 0; i < sortedList.size()- 1; i++ ){
+        for (int j = 0; j < sortedList.size() - i - 1; j++){
+            int k = 0;
+            string fullName1 = sortedList[j].firstName + sortedList[j].lastName;
+            string fullName2 = sortedList[j + 1].firstName + sortedList[j + 1].lastName;
+            while(k < fullName1.size() && k < fullName2.size() ){
+                if ( fullName1[k] > fullName2[k]){
+                    swap(sortedList[j], sortedList[j+1]);
+                    break;
+                }
+                k++;
+            }
+        }
+    }
+
+    showPersonDetails(sortedList);
 }
