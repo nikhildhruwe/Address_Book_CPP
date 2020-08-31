@@ -3,13 +3,18 @@
 using namespace std;
 
 void addPersonDetails(AddressBook &addressBookObj){
-string firstName, lastName, address, city, state, phone;
+    string firstName, lastName, address, city, state, phone;
     int zip;
+    bool check = false;
 
     cout << "\nEnter First Name : ";
     cin >> firstName;
     cout << "Enter Last Name : ";
     cin >> lastName;
+    check = addressBookObj.isNamePresentInAddressBook(firstName, lastName);
+    if (check == true){
+        return;
+    }
     cin.ignore();
     cout << "Enter Address : ";
     getline(cin, address);

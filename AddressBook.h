@@ -9,4 +9,5 @@ class AddressBook{
         void showPersonDetails();
         void editPersonDetails();
         void deletePersonDetails();
+        bool isNamePresentInAddressBook(string, string);
 };

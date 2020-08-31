@@ -66,3 +66,14 @@ void AddressBook :: deletePersonDetails(){
         cout << "No Such Record Found.";
     cout << endl;
 }
+
+bool AddressBook :: isNamePresentInAddressBook(string firstName, string lastName){
+   for (int i = 0; i < personDetailsList.size(); i++){
+        if  (personDetailsList[i].firstName == firstName && personDetailsList[i].lastName == lastName){
+            cout << "Name already present in address book." << endl;
+            return true;
+        }
+   }
+
+    return false;
+}
