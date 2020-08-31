@@ -34,13 +34,33 @@ void displayAddressBook(AddressBook addressBookObj){
     addressBookObj.showPersonDetails(addressBookObj.personDetailsList);  
 }
 
+void sortByCityStateOrZip(AddressBook addressBookObj){
+    int choice;
+    cout << "\n Select to sort by any of the follwing:\n1.City.\n2.State.\n3.Zip." << endl;
+    cin >> choice;
+    switch (choice){
+    case 1:
+        addressBookObj.sortByCity();
+        break;
+    case 2:
+        addressBookObj.sortByState();
+        break;
+    case 3:
+        addressBookObj.sortByZip();
+        break;    
+    default:
+        cout << "Invalid Choice." << endl;
+        break;
+    }
+}
+
 void displayOptions(){
     bool status = true;
     int choice;
     AddressBook addressBookObj;
     while (status){
         cout <<" Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Delete Person's Contact."
-        "\n5.Sort By Name.\n6.Exit" << endl;
+        "\n5.Sort By Name.\n6.Sort By City / State / Zip.\n7.Exit" << endl;
         cin >> choice;
         switch (choice){
         case 1:
@@ -61,8 +81,12 @@ void displayOptions(){
         case 5:
             addressBookObj.sortByName();
             cout << endl;
-            break;            
+            break;
         case 6:
+            sortByCityStateOrZip(addressBookObj);
+            cout << endl;
+            break;     
+        case 7:
             status = false;
             break;
         default:

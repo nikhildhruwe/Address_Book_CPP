@@ -96,3 +96,56 @@ void AddressBook :: sortByName(){
 
     showPersonDetails(sortedList);
 }
+
+void AddressBook ::sortByCity(){
+    vector<PersonDetails> sortedList = personDetailsList;
+    for (int i = 0; i < sortedList.size()- 1; i++ ){
+        for (int j = 0; j < sortedList.size() - i - 1; j++){
+            string city1 = sortedList[j].city;
+            string city2 = sortedList[j+1].city;
+            int k = 0;
+            while (k < city1.size() && k < city2.size()){
+                if ( city1[k] > city2[k] ){
+                    swap(sortedList[j], sortedList[j+1]);
+                    break;
+                }
+                k++;
+            }
+        }
+    }
+
+    showPersonDetails(sortedList);
+}
+
+void AddressBook ::sortByState(){
+    vector<PersonDetails> sortedList = personDetailsList;
+    for (int i = 0; i < sortedList.size()- 1; i++ ){
+        for (int j = 0; j < sortedList.size() - i - 1; j++){
+            string state1 = sortedList[j].state;
+            string state2 = sortedList[j+1].state;
+            int k = 0;
+            while (k < state1.size() && k < state2.size()){
+                if ( state1[k] > state2[k] ){
+                    swap(sortedList[j], sortedList[j+1]);
+                    break;
+                }
+                k++;
+            }
+        }
+    }
+
+    showPersonDetails(sortedList);
+}
+
+void AddressBook ::sortByZip(){
+    vector<PersonDetails> sortedList = personDetailsList;
+    for (int i = 0; i < sortedList.size()- 1; i++ ){
+        for (int j = 0; j < sortedList.size() - i - 1; j++){
+            if (sortedList[j].zip > sortedList[j+1].zip ){
+                swap(sortedList[j], sortedList[j+1]);
+            }
+        }
+    }
+
+    showPersonDetails(sortedList);
+}

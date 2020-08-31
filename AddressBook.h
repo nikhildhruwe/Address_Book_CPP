@@ -12,4 +12,7 @@ class AddressBook{
         void deletePersonDetails();
         bool isNamePresentInAddressBook(string, string);
         void sortByName();
+        void sortByCity();
+        void sortByState();
+        void sortByZip();
 };
