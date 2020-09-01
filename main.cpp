@@ -26,7 +26,12 @@ void addPersonDetails(AddressBook &addressBookObj){
     cin >> zip;
     cout << "Enter Phone Number : ";
     cin >> phone;
-    PersonDetails personObj(firstName, lastName, address, city, state, zip, phone);
+    PersonDetails personObj(firstName, lastName);
+    personObj.address = address;
+    personObj.city = city;
+    personObj.state = state;
+    personObj.zip = zip;
+    personObj.phone = phone;
     addressBookObj.addPerson(personObj);
 }
 
