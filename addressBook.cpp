@@ -149,3 +149,13 @@ void AddressBook ::sortByZip(){
 
     showPersonDetails(sortedList);
 }
+
+void AddressBook :: viewByCityAndState(string city, string state){
+    cout << endl;
+    for (int i = 0; i < personDetailsList.size(); i++ ){
+        if (personDetailsList[i].city == city && personDetailsList[i].state == state){
+            personDetailsList[i].displayPersonDetails();
+            cout << endl;
+        }
+    }
+}

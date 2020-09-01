@@ -15,4 +15,5 @@ class AddressBook{
         void sortByCity();
         void sortByState();
         void sortByZip();
+        void viewByCityAndState(string, string);
 };
