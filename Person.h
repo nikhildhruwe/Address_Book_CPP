@@ -7,6 +7,6 @@ class PersonDetails{
         string firstName, lastName, address, city, state, phone;
         int zip;
         
-        PersonDetails(string firstName, string lastName, string  address, string  city, string  state, int zip, string phone);
+        PersonDetails(string firstName, string lastName);
         void displayPersonDetails();
 };
