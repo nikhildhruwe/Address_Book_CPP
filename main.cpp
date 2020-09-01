@@ -53,6 +53,7 @@ void sortByCityStateOrZip(AddressBook addressBookObj){
         break;
     }
 }
+
 void viewByCityAndState(AddressBook addressBookObj){
     string city, state;
     cin.ignore();
@@ -60,16 +61,28 @@ void viewByCityAndState(AddressBook addressBookObj){
     getline(cin, city);
     cout << "Enter State : " << endl;
     getline(cin, state);
-    cout << "Person information with city : " << city << " and state : " << state << endl;
+    cout << "\nPerson information with city : " << city << " and state : " << state << endl;
     addressBookObj.viewByCityAndState(city, state);
 }
+
+void viewByCityOrState(AddressBook addressBookObj){
+    string city, state;
+    cin.ignore();
+    cout << "Enter City : " << endl;
+    getline(cin, city);
+    cout << "Enter State : " << endl;
+    getline(cin, state);
+    cout << "\nPerson information with city : " << city << " or state : " << state << endl;
+    addressBookObj.viewByCityOrState(city, state);
+}
+
 void displayOptions(){
     bool status = true;
     int choice;
     AddressBook addressBookObj;
     while (status){
         cout <<" Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Delete Person's Contact."
-        "\n5.Sort By Name.\n6.Sort By City / State / Zip.\n7.View Person By City And State.\n8.Exit" << endl;
+        "\n5.Sort By Name.\n6.Sort By City / State / Zip.\n7.View Person By City And State.\n8.View Person By City Or State.\n9.Exit" << endl;
         cin >> choice;
         switch (choice){
         case 1:
@@ -98,8 +111,12 @@ void displayOptions(){
         case 7:
             viewByCityAndState(addressBookObj);
             cout << endl;
-            break;    
+            break; 
         case 8:
+            viewByCityOrState(addressBookObj);
+            cout << endl;
+            break;               
+        case 9:
             status = false;
             break;
         default:
