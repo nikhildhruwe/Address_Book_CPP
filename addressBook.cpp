@@ -81,16 +81,23 @@ void AddressBook :: sortByName(){
     vector<PersonDetails> sortedList = personDetailsList;
     for (int i = 0; i < sortedList.size()- 1; i++ ){
         for (int j = 0; j < sortedList.size() - i - 1; j++){
-            int k = 0;
             string fullName1 = sortedList[j].firstName + sortedList[j].lastName;
             string fullName2 = sortedList[j + 1].firstName + sortedList[j + 1].lastName;
-            while(k < fullName1.size() && k < fullName2.size() ){
-                if ( fullName1[k] > fullName2[k]){
-                    swap(sortedList[j], sortedList[j+1]);
-                    break;
-                }
-                k++;
+            if ( fullName1[0] > fullName2[0]){
+                swap(sortedList[j], sortedList[j+1]);
+                continue;
             }
+            int k = 0;
+            if ( fullName1[k] == fullName2[k]){
+                while(k < fullName1.size() && k < fullName2.size() ){
+                    k++;
+                    if ( fullName1[k] > fullName2[k]){
+                        swap(sortedList[j], sortedList[j+1]);
+                        break;
+                    }
+                }
+
+            } 
         }
     }
 
