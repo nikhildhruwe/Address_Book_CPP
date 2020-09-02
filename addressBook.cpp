@@ -155,21 +155,33 @@ void AddressBook ::sortByZip(){
 }
 
 void AddressBook :: viewByCityAndState(string city, string state){
+    int flag = 0;
     cout << endl;
     for (int i = 0; i < personDetailsList.size(); i++ ){
         if (personDetailsList[i].city == city && personDetailsList[i].state == state){
+            flag = 1;
             personDetailsList[i].displayPersonDetails();
             cout << endl;
         }
     }
+
+    if (flag != 1)
+    cout << "No Such Record Found.";
+    cout << endl;
 }
 
 void AddressBook :: viewByCityOrState(string city, string state){
+    int flag = 0;
     cout << endl;
     for (int i = 0; i < personDetailsList.size(); i++ ){
         if (personDetailsList[i].city == city || personDetailsList[i].state == state){
+            flag = 1;
             personDetailsList[i].displayPersonDetails();
             cout << endl;
         }
     }
+
+    if (flag != 1)
+    cout << "No Such Record Found.";
+    cout << endl;
 }
