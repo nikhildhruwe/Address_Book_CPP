@@ -22,10 +22,10 @@ PersonDetails :: PersonDetails(string firstName, string lastName, string  addres
 
 class AddressBook{
     public :
+        vector <PersonDetails> personDetailsList;
         void addPersonDetails();
         void showPersonDetails();
 };
-vector <PersonDetails> personDetailsList;
 
 void AddressBook :: addPersonDetails(){
     string firstName, lastName, address, city, state, phone;
