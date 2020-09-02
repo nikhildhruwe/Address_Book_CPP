@@ -1,5 +1,4 @@
 #include "AddressBook.h"
-vector <PersonDetails> personDetailsList;
 
 void AddressBook :: addPerson(PersonDetails personObj){   
     personDetailsList.push_back(personObj);
