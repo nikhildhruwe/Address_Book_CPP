@@ -4,6 +4,7 @@
 using namespace std;
 
 class AddressBook{
+        void editPersonDetails(PersonDetails &);
     public :
         vector <PersonDetails> personDetailsList;
         void addPerson(PersonDetails);

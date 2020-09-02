@@ -4,6 +4,19 @@ void AddressBook :: addPerson(PersonDetails personObj){
     personDetailsList.push_back(personObj);
 }
 
+void AddressBook ::editPersonDetails(PersonDetails &personObj){
+    cout << "Enter Address : ";
+    getline(cin, personObj.address);
+    cout << "Enter City : ";
+    getline(cin, personObj.city);
+    cout << "Enter State : ";
+    getline(cin, personObj.state);
+    cout << "Enter Zip : ";
+    cin >> personObj.zip;
+    cout << "Enter Phone Number : ";
+    cin >> personObj.phone;
+}
+
 void AddressBook :: showPersonDetails(vector<PersonDetails> personList){
     cout << "\nPerson Details \n---------------" << endl;
     for (int i = 0; i < personList.size(); i++){
@@ -24,17 +37,8 @@ void AddressBook :: editPersonDetails(){
         if  (personDetailsList[i].firstName == firstName && personDetailsList[i].lastName == lastName){
             flag = 1;
             cin.ignore();
-            cout << "Record Found, Edit the details" << endl;
-            cout << "Enter Address : ";
-            getline(cin, personDetailsList[i].address);
-            cout << "Enter City : ";
-            getline(cin, personDetailsList[i].city);
-            cout << "Enter State : ";
-            getline(cin, personDetailsList[i].state);
-            cout << "Enter Zip : ";
-            cin >> personDetailsList[i].zip;
-            cout << "Enter Phone Number : ";
-            cin >> personDetailsList[i].phone;    
+            cout << "Record Found." << endl;
+            editPersonDetails(personDetailsList[i]);   
         }
     }
 

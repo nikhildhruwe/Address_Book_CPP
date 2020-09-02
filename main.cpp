@@ -29,7 +29,7 @@ void addPersonDetails(AddressBook &addressBookObj){
     PersonDetails personObj(firstName, lastName);
     personObj.address = address;
     personObj.city = city;
-    personObj.state =state;
+    personObj.state = state;
     personObj.zip = zip;
     personObj.phone = phone;
     addressBookObj.addPerson(personObj);
