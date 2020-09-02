@@ -91,6 +91,7 @@ void AddressBook :: sortByName(){
                 swap(sortedList[j], sortedList[j+1]);
         }
     }
+    showPersonDetails(sortedList);
 }
 
 void AddressBook ::sortByCity(){
