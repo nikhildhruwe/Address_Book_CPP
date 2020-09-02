@@ -87,39 +87,18 @@ void AddressBook :: sortByName(){
         for (int j = 0; j < sortedList.size() - i - 1; j++){
             string fullName1 = sortedList[j].firstName + sortedList[j].lastName;
             string fullName2 = sortedList[j + 1].firstName + sortedList[j + 1].lastName;
-            if ( fullName1[0] > fullName2[0]){
+            if (fullName1 > fullName2)
                 swap(sortedList[j], sortedList[j+1]);
-                continue;
-            }
-            int k = 0;
-            if ( fullName1[k] == fullName2[k]){
-                while(k < fullName1.size() && k < fullName2.size() ){
-                    k++;
-                    if ( fullName1[k] > fullName2[k]){
-                        swap(sortedList[j], sortedList[j+1]);
-                        break;
-                    }
-                }
-
-            } 
         }
     }
 }
 
 void AddressBook ::sortByCity(){
     vector<PersonDetails> sortedList = personDetailsList;
-    for (int i = 0; i < sortedList.size()- 1; i++ ){
+      for (int i = 0; i < sortedList.size()- 1; i++ ){
         for (int j = 0; j < sortedList.size() - i - 1; j++){
-            string city1 = sortedList[j].city;
-            string city2 = sortedList[j+1].city;
-            int k = 0;
-            while (k < city1.size() && k < city2.size()){
-                if ( city1[k] > city2[k] ){
-                    swap(sortedList[j], sortedList[j+1]);
-                    break;
-                }
-                k++;
-            }
+            if ( sortedList[j].city > sortedList[j + 1].city)
+                swap(sortedList[j], sortedList[j+1]);
         }
     }
 
@@ -130,16 +109,8 @@ void AddressBook ::sortByState(){
     vector<PersonDetails> sortedList = personDetailsList;
     for (int i = 0; i < sortedList.size()- 1; i++ ){
         for (int j = 0; j < sortedList.size() - i - 1; j++){
-            string state1 = sortedList[j].state;
-            string state2 = sortedList[j+1].state;
-            int k = 0;
-            while (k < state1.size() && k < state2.size()){
-                if ( state1[k] > state2[k] ){
-                    swap(sortedList[j], sortedList[j+1]);
-                    break;
-                }
-                k++;
-            }
+            if ( sortedList[j].state > sortedList[j + 1].state)
+                swap(sortedList[j], sortedList[j+1]);
         }
     }
 
