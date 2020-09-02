@@ -85,8 +85,8 @@ void AddressBook :: sortByName(){
     vector<PersonDetails> sortedList = personDetailsList;
     for (int i = 0; i < sortedList.size()- 1; i++ ){
         for (int j = 0; j < sortedList.size() - i - 1; j++){
-            string fullName1 = sortedList[j].firstName + sortedList[j].lastName;
-            string fullName2 = sortedList[j + 1].firstName + sortedList[j + 1].lastName;
+            string fullName1 = sortedList[j].firstName + " " + sortedList[j].lastName;
+            string fullName2 = sortedList[j + 1].firstName + " " + sortedList[j + 1].lastName;
             if (fullName1 > fullName2)
                 swap(sortedList[j], sortedList[j+1]);
         }
