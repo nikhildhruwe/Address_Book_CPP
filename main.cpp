@@ -91,33 +91,41 @@ void displayOptions(){
         cin >> choice;
         switch (choice){
         case 1:
+            system("clear");
             addPersonDetails(addressBookObj);
             cout << endl;
             break;
         case 2:
+            system("clear");
             displayAddressBook(addressBookObj);
             cout << endl;
             break;
         case 3:
+            system("clear");
             addressBookObj.editPersonDetails();
             break;
         case 4:
+            system("clear");
             addressBookObj.deletePersonDetails();
             cout << endl;
             break;
         case 5:
+            system("clear");
             addressBookObj.sortByName();
             cout << endl;
             break;
         case 6:
+            system("clear");
             sortByCityStateOrZip(addressBookObj);
             cout << endl;
             break;
         case 7:
+            system("clear");
             viewByCityAndState(addressBookObj);
             cout << endl;
             break; 
         case 8:
+            system("clear");
             viewByCityOrState(addressBookObj);
             cout << endl;
             break;               
@@ -125,6 +133,7 @@ void displayOptions(){
             status = false;
             break;
         default:
+            system("clear");
             cout << "Invalid Choice." << endl;
             break;
         }
