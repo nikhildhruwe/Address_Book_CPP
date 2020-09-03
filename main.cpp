@@ -88,6 +88,7 @@ void displayOptions(){
     while (status){
         cout <<" Select Options: " << "\n1.Add Person.\n2.Display Details.\n3.Edit Person Details.\n4.Delete Person's Contact."
         "\n5.Sort By Name.\n6.Sort By City / State / Zip.\n7.View Person By City And State.\n8.View Person By City Or State.\n9.Exit" << endl;
+        cout << "Enter : ";
         cin >> choice;
         switch (choice){
         case 1:
